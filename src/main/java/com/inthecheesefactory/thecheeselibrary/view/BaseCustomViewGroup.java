@@ -38,12 +38,17 @@ public class BaseCustomViewGroup extends FrameLayout {
         Parcelable superState = super.onSaveInstanceState();
 
         // Save Children's state as a Bundle
-        Bundle bundle = new Bundle();
-        SparseArray childrenStates = new SparseArray();
+        Bundle childrenStates = new Bundle();
         for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).saveHierarchyState(childrenStates);
+            int id = getChildAt(i).getId();
+            if (id != 0) {
+                SparseArray childrenState = new SparseArray();
+                getChildAt(i).saveHierarchyState(childrenState);
+                childrenStates.putSparseParcelableArray(String.valueOf(id), childrenState);
+            }
         }
-        bundle.putSparseParcelableArray("childrenStates", childrenStates);
+        Bundle bundle = new Bundle();
+        bundle.putBundle("childrenStates", childrenStates);
 
         // Save it to Parcelable
         BundleSavedState ss = new BundleSavedState(superState);
@@ -57,12 +62,19 @@ public class BaseCustomViewGroup extends FrameLayout {
         super.onRestoreInstanceState(ss.getSuperState());
 
         // Restore SparseArray
-        SparseArray childrenStates = ss.getBundle().getSparseParcelableArray("childrenStates");
-
+        Bundle childrenStates = ss.getBundle().getBundle("childrenStates");
         // Restore Children's state
         for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).restoreHierarchyState(childrenStates);
+            int id = getChildAt(i).getId();
+            if (id != 0) {
+                if (childrenStates.containsKey(String.valueOf(id))) {
+                    SparseArray childrenState =
+                            childrenStates.getSparseParcelableArray(String.valueOf(id));
+                    getChildAt(i).restoreHierarchyState(childrenState);
+                }
+            }
         }
+
     }
 
     @Override
