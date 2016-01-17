@@ -72,7 +72,6 @@ public class BaseCustomViewGroup extends FrameLayout {
                 }
             }
         }
-
     }
 
     @Override
