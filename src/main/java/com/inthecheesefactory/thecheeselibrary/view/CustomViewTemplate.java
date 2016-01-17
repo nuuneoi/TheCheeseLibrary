@@ -71,11 +71,9 @@ public class CustomViewTemplate extends View {
         Parcelable superState = super.onSaveInstanceState();
 
         BundleSavedState savedState = new BundleSavedState(superState);
-        Bundle bundle = new Bundle();
-        // Save Instance State(s) here to the bundle
-
-        // Put it to Parcelable
-        savedState.setBundle(bundle);
+        // Save Instance State(s) here to the 'savedState.getBundle()'
+        // for example,
+        // savedState.getBundle().putString("key", value);
 
         return savedState;
     }
@@ -86,7 +84,6 @@ public class CustomViewTemplate extends View {
         super.onRestoreInstanceState(ss.getSuperState());
 
         Bundle bundle = ss.getBundle();
-
         // Restore State from bundle here
     }
 

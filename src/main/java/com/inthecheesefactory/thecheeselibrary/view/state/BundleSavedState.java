@@ -10,7 +10,7 @@ import android.view.View.BaseSavedState;
  */
 public class BundleSavedState extends BaseSavedState {
 
-    private Bundle bundle;
+    private Bundle bundle = new Bundle();
 
     public BundleSavedState(Parcel source) {
         super(source);
@@ -29,10 +29,6 @@ public class BundleSavedState extends BaseSavedState {
 
     public Bundle getBundle() {
         return bundle;
-    }
-
-    public void setBundle(Bundle bundle) {
-        this.bundle = bundle;
     }
 
     public static final Creator CREATOR = new Creator() {

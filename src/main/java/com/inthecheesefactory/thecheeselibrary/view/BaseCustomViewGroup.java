@@ -47,12 +47,10 @@ public class BaseCustomViewGroup extends FrameLayout {
                 childrenStates.putSparseParcelableArray(String.valueOf(id), childrenState);
             }
         }
-        Bundle bundle = new Bundle();
-        bundle.putBundle("childrenStates", childrenStates);
 
         // Save it to Parcelable
         BundleSavedState ss = new BundleSavedState(superState);
-        ss.setBundle(bundle);
+        ss.getBundle().putBundle("childrenStates", childrenStates);
         return ss;
     }
 
