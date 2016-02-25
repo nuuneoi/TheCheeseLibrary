@@ -35,7 +35,7 @@ public class FragmentTemplate extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        initInstances(rootView);
+        initInstances(rootView, savedInstanceState);
         return rootView;
     }
 
@@ -43,7 +43,7 @@ public class FragmentTemplate extends Fragment {
         // Init Fragment level's variable(s) here
     }
 
-    private void initInstances(View rootView) {
+    private void initInstances(View rootView, Bundle savedInstanceState) {
         // Init 'View' instance(s) with rootView.findViewById here
     }
 
