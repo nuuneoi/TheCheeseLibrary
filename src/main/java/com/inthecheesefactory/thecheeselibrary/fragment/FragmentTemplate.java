@@ -1,6 +1,7 @@
 package com.inthecheesefactory.thecheeselibrary.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,12 @@ public class FragmentTemplate extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        init();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
@@ -32,8 +39,12 @@ public class FragmentTemplate extends Fragment {
         return rootView;
     }
 
+    private void init() {
+        // Init Fragment level's variable(s) here
+    }
+
     private void initInstances(View rootView) {
-        // init instance with rootView.findViewById here
+        // Init 'View' instance(s) with rootView.findViewById here
     }
 
     @Override
