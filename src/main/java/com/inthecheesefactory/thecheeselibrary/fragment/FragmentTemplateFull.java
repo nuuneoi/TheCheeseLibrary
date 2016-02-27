@@ -12,12 +12,14 @@ import com.inthecheesefactory.thecheeselibrary.R;
 /**
  * Created by nuuneoi on 11/16/2014.
  */
+@SuppressWarnings("unused")
 public class FragmentTemplateFull extends Fragment {
 
     public FragmentTemplateFull() {
         super();
     }
 
+    @SuppressWarnings("unused")
     public static FragmentTemplateFull newInstance() {
         FragmentTemplateFull fragment = new FragmentTemplateFull();
         Bundle args = new Bundle();
@@ -46,6 +48,7 @@ public class FragmentTemplateFull extends Fragment {
         // Init Fragment level's variable(s) here
     }
 
+    @SuppressWarnings("UnusedParameters")
     private void initInstances(View rootView, Bundle savedInstanceState) {
         // Init 'View' instance(s) with rootView.findViewById here
     }
@@ -72,6 +75,7 @@ public class FragmentTemplateFull extends Fragment {
     /*
      * Restore Instance State Here
      */
+    @SuppressWarnings("UnusedParameters")
     private void onRestoreInstanceState(Bundle savedInstanceState) {
         // Restore Instance State here
     }
