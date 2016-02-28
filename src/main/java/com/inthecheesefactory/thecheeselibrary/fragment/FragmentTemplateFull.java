@@ -30,7 +30,7 @@ public class FragmentTemplateFull extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init();
+        init(savedInstanceState);
 
         if (savedInstanceState != null)
             onRestoreInstanceState(savedInstanceState);
@@ -44,7 +44,7 @@ public class FragmentTemplateFull extends Fragment {
         return rootView;
     }
 
-    private void init() {
+    private void init(Bundle savedInstanceState) {
         // Init Fragment level's variable(s) here
     }
 
